@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Pomodoro Timer</h1>
+    <p>Focus, take a break, and stay productive.</p>
+</header>
+<main>
+    <section class="timer-section">
+        <div class="timer-card">
+            <div class="status" id="status">
+                Ready to Focus
+            </div>
+            <div class="timer" id="timer">
+                30:00
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="buttons">
+                <button id="startBtn">Start</button>
+                <button id="pauseBtn">Pause</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+            <p class="session">
+                Sessions Completed:
+                <strong id="sessionCount">0</strong>
+            </p>
+        </div>
+    </section>
+    <section class="settings-section">
+        <h2>Timer Settings</h2>
+        <form id="settingsForm">
+            <div class="form-group">
+                <label for="workDuration">
+                    Work Duration
+                </label>
+                <input
+                    type="number"
+                    id="workDuration"
+                    min="0.5"
+                    max="120"
+                    value="30"
+                    required
+                >
+                <span>Minutes</span>
+            </div>
+            <div class="form-group">
+                <label for="breakDuration">
+                    Break Duration
+                </label>
+                <input
+                    type="number"
+                    id="breakDuration"
+                    min="0.5"
+                    max="60"
+                    value="5"
+                    required
+                >
+                <span>Minutes</span>
+            </div>
+            <div class="form-group">
+                <label for="notification">
+                    Notification
+                </label>
+                <select id="notification">
+                    <option value="sound">Sound</option>
+                    <option value="silent">Silent</option>
+                </select>
+            </div>
+            <button type="submit" class="apply-btn">
+                Apply Settings
+            </button>
+        </form>
+    </section>
+</main>
+<footer>
+    <p>Pomodoro Timer &copy; 2026</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
