@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+    min-height: 100vh;
+}
+
+header {
+    background: #d9534f;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 16px;
+}
+
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+.timer-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-card {
+    background: white;
+    width: 100%;
+    padding: 35px;
+    border-radius: 15px;
+    text-align: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.status {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.timer {
+    font-size: 80px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #d9534f;
+    transition: width 0.5s linear;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+button {
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    background: #d9534f;
+    color: white;
+    transition: 0.2s;
+}
+
+button:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+}
+
+button:focus,
+input:focus,
+select:focus {
+    outline: 3px solid rgba(217, 83, 79, 0.3);
+}
+
+#pauseBtn {
+    background: #f0ad4e;
+}
+
+#resetBtn {
+    background: #555;
+}
+
+.session {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.settings-section {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.settings-section h2 {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.form-group span {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #777;
+}
+
+.apply-btn {
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    color: #666;
+}
+
+@media (max-width: 700px) {
+
+    main {
+        grid-template-columns: 1fr;
+        width: 94%;
+    }
+
+    .timer-card {
+        padding: 25px 15px;
+    }
+
+    .timer {
+        font-size: 60px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    .timer {
+        font-size: 48px;
+    }
+
+    .timer-card {
+        padding: 20px 10px;
+    }
+}
