@@ -1,25 +1,19 @@
 const timerDisplay = document.getElementById("timer");
 const statusDisplay = document.getElementById("status");
 const progressBar = document.getElementById("progressBar");
-
 const startBtn = document.getElementById("startBtn");
 const pauseBtn = document.getElementById("pauseBtn");
 const resetBtn = document.getElementById("resetBtn");
 
-const sessionCountDisplay =
-    document.getElementById("sessionCount");
+const sessionCountDisplay = document.getElementById("sessionCount");
 
-const settingsForm =
-    document.getElementById("settingsForm");
+const settingsForm = document.getElementById("settingsForm");
 
-const workInput =
-    document.getElementById("workDuration");
+const workInput = document.getElementById("workDuration");
 
-const breakInput =
-    document.getElementById("breakDuration");
+const breakInput = document.getElementById("breakDuration");
 
-const notificationSelect =
-    document.getElementById("notification");
+const notificationSelect = document.getElementById("notification");
 
 let timerInterval = null;
 let isRunning = false;
@@ -31,8 +25,7 @@ let breakDuration = 5;
 let totalSeconds = workDuration * 60;
 let remainingSeconds = totalSeconds;
 
-let sessionCount =
-    Number(localStorage.getItem("pomodoroSessions")) || 0;
+let sessionCount = Number(localStorage.getItem("pomodoroSessions")) || 0;
 
 sessionCountDisplay.textContent = sessionCount;
 
@@ -51,19 +44,16 @@ function formatTime(seconds) {
 
 function updateDisplay() {
 
-    timerDisplay.textContent =
-        formatTime(remainingSeconds);
+    timerDisplay.textContent = formatTime(remainingSeconds);
 
-    const elapsed =
-        totalSeconds - remainingSeconds;
+    const elapsed = totalSeconds - remainingSeconds;
 
     const progress =
         totalSeconds > 0
             ? (elapsed / totalSeconds) * 100
             : 0;
 
-    progressBar.style.width =
-        progress + "%";
+    progressBar.style.width = progress + "%";
 }
 
 function startTimer() {
@@ -119,14 +109,11 @@ function resetTimer() {
 
     isWorkSession = true;
 
-    totalSeconds =
-        workDuration * 60;
+    totalSeconds = workDuration * 60;
 
-    remainingSeconds =
-        totalSeconds;
+    remainingSeconds = totalSeconds;
 
-    statusDisplay.textContent =
-        "Ready to Focus";
+    statusDisplay.textContent = "Ready to Focus";
 
     updateDisplay();
 }
@@ -146,36 +133,26 @@ function completeSession() {
 
         sessionCount++;
 
-        localStorage.setItem(
-            "pomodoroSessions",
-            sessionCount
-        );
+        localStorage.setItem("pomodoroSessions",sessionCount);
 
-        sessionCountDisplay.textContent =
-            sessionCount;
+        sessionCountDisplay.textContent = sessionCount;
 
         isWorkSession = false;
 
-        totalSeconds =
-            breakDuration * 60;
+        totalSeconds = breakDuration * 60;
 
-        remainingSeconds =
-            totalSeconds;
+        remainingSeconds = totalSeconds;
 
-        statusDisplay.textContent =
-            "Work Complete! Take a Break";
+        statusDisplay.textContent = "Work Complete! Take a Break";
 
     } else {
         isWorkSession = true;
 
-        totalSeconds =
-            workDuration * 60;
+        totalSeconds = workDuration * 60;
 
-        remainingSeconds =
-            totalSeconds;
+        remainingSeconds = totalSeconds;
 
-        statusDisplay.textContent =
-            "Break Complete! Ready to Focus";
+        statusDisplay.textContent = "Break Complete! Ready to Focus";
     }
 
     updateDisplay();
@@ -197,14 +174,11 @@ function playNotification() {
         return;
     }
 
-    const audioContext =
-        new AudioContext();
+    const audioContext = new AudioContext();
 
-    const oscillator =
-        audioContext.createOscillator();
+    const oscillator = audioContext.createOscillator();
 
-    const gain =
-        audioContext.createGain();
+    const gain = audioContext.createGain();
 
     oscillator.connect(gain);
     gain.connect(audioContext.destination);
@@ -226,11 +200,9 @@ settingsForm.addEventListener(
 
         event.preventDefault();
 
-        const newWorkDuration =
-            Number(workInput.value);
+        const newWorkDuration = Number(workInput.value);
 
-        const newBreakDuration =
-            Number(breakInput.value);
+        const newBreakDuration = Number(breakInput.value);
         if (
             !Number.isFinite(newWorkDuration) ||
             newWorkDuration < 1 ||
@@ -253,10 +225,8 @@ settingsForm.addEventListener(
             );
             return;
         }
-        workDuration =
-            newWorkDuration;
-        breakDuration =
-            newBreakDuration;
+        workDuration = newWorkDuration;
+        breakDuration =newBreakDuration;
         resetTimer();
         alert(
             "Timer settings updated successfully!"
